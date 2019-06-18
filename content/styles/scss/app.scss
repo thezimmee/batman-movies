@@ -163,9 +163,15 @@ movie-detail {
   border: 2px solid $c-movie__border;
   border-radius: 12px;
   margin-bottom: $p;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 
   &:last-of-type {
     margin-bottom: 0;
+  }
+
+  &--loaded {
+    opacity: 1;
   }
 
   &__image {
@@ -186,6 +192,7 @@ movie-detail {
   &__details {
     display: flex;
     flex-direction: column;
+    width: 100%;
     padding-left: $p--l;
   }
 
@@ -220,8 +227,9 @@ movie-detail {
     font-family: Courier, monospace;
   }
 
-  &__runtime {
+  &__released {
     flex-grow: 1;
+    text-align: right;
   }
 
   &__plot {
