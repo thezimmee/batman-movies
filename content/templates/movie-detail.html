@@ -1,0 +1,27 @@
+<div class="movie__image">
+  <img ng-src="{{$ctrl.movie.Poster}}" ng-attr-alt="{{$ctrl.movie.Title}}" />
+</div>
+
+<div class="movie__details">
+  <div class="movie__inner">
+    <h2 class="movie__title">{{$ctrl.movie.Title}}</h2>
+
+    <div class="movie__meta">
+      <span class="movie__rating">{{$ctrl.movie.Rated}}</span>
+      <span class="movie__runtime">{{$ctrl.movie.Runtime}}</span>
+      <span class="movie__released">{{$ctrl.movie.Released}}</span>
+    </div>
+
+    <div class="movie__plot">{{$ctrl.movie.Plot}}</div>
+  </div>
+
+  <div class="movie__footer">
+    <a
+      class="movie__button"
+      ng-href="https://imdb.com/title/{{$ctrl.movie.imdbID}}"
+      ng-attr-title="View {{$ctrl.movie.Title}} on IMDB."
+      target="_blank"
+      >View on IMDB</a
+    >
+  </div>
+</div>

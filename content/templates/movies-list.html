@@ -1,0 +1,13 @@
+<div class="movies">
+  <movies-filter
+    class="movies__filters"
+    filters="$ctrl.filters"
+    active-filter="$ctrl.filter"
+  ></movies-filter>
+
+  <movie-detail
+    class="movie"
+    ng-repeat="movie in $ctrl.movies | byDecade:$ctrl.filter"
+    movie="movie"
+  ></movie-detail>
+</div>

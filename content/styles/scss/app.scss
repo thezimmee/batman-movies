@@ -1,0 +1,256 @@
+// -------------------------------------------------------------------------------------------------
+// Configuration.
+//
+
+// Colors.
+$c-movie: hsl(210, 15%, 92%);
+$c-movie__border: hsl(200, 6%, 20%);
+$c-filter: hsl(210, 14%, 97%);
+$c-filter--active: hsl(205, 74%, 40%);
+$c-filter__border: hsl(206, 13%, 79%);
+$c-separator: hsl(201, 8%, 59%);
+$c-text: hsl(200, 6%, 20%);
+$c-button: hsl(36, 94%, 63%);
+$c-gray: hsl(199, 8%, 58%);
+$c-white: hsl(0, 0%, 100%);
+
+// Height/Width.
+$w-container: 800px;
+$w-image: 120px;
+$w-image--wide: 208px;
+
+// Padding.
+$p: 14px;
+$p--s: 5px;
+$p--l: 25px;
+$p--xl: 40px;
+
+// -------------------------------------------------------------------------------------------------
+// Reset.
+//
+
+html,
+body,
+div,
+form,
+fieldset,
+legend,
+caption,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  outline: 0;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    vertical-align: top;
+}
+
+img {
+    border: 0;
+}
+
+body {
+  color: $c-text;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.3;
+}
+
+// -------------------------------------------------------------------------------------------------
+// Containers.
+//
+
+movies-list,
+movies-filter,
+movie-detail {
+  display: block;
+}
+
+.container {
+  max-width: $w-container;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// -------------------------------------------------------------------------------------------------
+// Movies list.
+//
+
+.movies {
+  padding: $p;
+
+  &__filters {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $p--xl;
+  }
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 92px;
+    appearance: none;
+    background-color: $c-filter;
+    border: 1px solid $c-filter__border;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+    will-change: background-color, color, border, box-shadow;
+    transition-property: background-color, color, border, box-shadow;
+    transition-duration: 0.2s;
+
+    &:hover,
+    &:focus {
+      background-color: darken($c-filter, 5%);
+    }
+
+    & + & {
+      border-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:last-of-type {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &--active,
+    &--active:hover,
+    &--active:focus {
+      background-color: $c-filter--active;
+      border-color: $c-filter--active;
+      box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.2);
+      color: $c-white;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+// -------------------------------------------------------------------------------------------------
+// Movie.
+//
+
+.movie {
+  display: flex;
+  padding: $p;
+  background-color: $c-movie;
+  border: 2px solid $c-movie__border;
+  border-radius: 12px;
+  margin-bottom: $p;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__image {
+    width: $w-image;
+    min-width: $w-image;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    @media (min-width: 600px) {
+      width: $w-image--wide;
+      min-width: $w-image--wide;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    padding-left: $p--l;
+  }
+
+  &__inner {
+    flex-grow: 1;
+  }
+
+  &__title {
+    padding-bottom: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid $c-separator;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    padding-top: $p--s;
+    font-size: 14px;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+    padding: 1px ($p/2) 2px;
+    border: 1px solid $c-gray;
+    border-radius: 4px;
+    color: $c-gray;
+    font-family: Courier, monospace;
+  }
+
+  &__runtime {
+    flex-grow: 1;
+  }
+
+  &__plot {
+    margin-top: $p;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $p;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 193px;
+    background-color: $c-button;
+    border-radius: 4px;
+    color: $c-white;
+    font-weight: bold;
+    text-decoration: none;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+
+    &:hover,
+    &:focus {
+      background-color: darken($c-button, 10%);
+    }
+  }
+}
