@@ -8,7 +8,7 @@
     "start": "npm run watch",
     "sass": "sass content/styles/scss/app.scss content/styles/css/app.css --error-css --color",
     "watch": "npm run sass -- --watch & browser-sync start --server --files='index.html,scripts/app.js,content/styles/css/**/*.css,content/templates/**/*.html'",
-    "push": "gh-pages -d . --message='Publish to GitHub pages.'"
+    "deploy": "gh-pages -d . --message='Publish to GitHub pages.'"
   },
   "keywords": [],
   "author": "Tyson Zimmerman <thezimmee@gmail.com> (https://github.com/thezimmee/)",

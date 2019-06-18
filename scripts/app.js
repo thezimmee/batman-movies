@@ -22,7 +22,7 @@ function MoviesListController ($scope, $element, $attrs, $http) {
   ]
 
   // Fetch movies data.
-  $http.get('http://www.omdbapi.com/?s=Batman&apikey=2b48aeda').then(function success (response) {
+  $http.get('//www.omdbapi.com/?s=Batman&apikey=2b48aeda').then(function success (response) {
     // @todo: Validate return data succeeded, or show error.
     // Only take first 10, per requirements in readme.md.
     ctrl.movies = response.data.Search.slice(0, 10)
