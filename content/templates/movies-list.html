@@ -1,4 +1,4 @@
-<div class="movies">
+<div class="movies" ng-if="!$ctrl.error">
   <movies-filter
     class="movies__filters"
     filters="$ctrl.filters"
@@ -8,6 +8,8 @@
   <movie-detail
     class="movie"
     ng-repeat="movie in $ctrl.movies | byDecade:$ctrl.filter"
+    ng-if="!movie.error"
+    ng-class="{'movie--loaded': movie.initialized}"
     movie="movie"
   ></movie-detail>
 </div>

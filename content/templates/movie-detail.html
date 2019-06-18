@@ -7,15 +7,19 @@
     <h2 class="movie__title">{{$ctrl.movie.Title}}</h2>
 
     <div class="movie__meta">
-      <span class="movie__rating">{{$ctrl.movie.Rated}}</span>
-      <span class="movie__runtime">{{$ctrl.movie.Runtime}}</span>
-      <span class="movie__released">{{$ctrl.movie.Released}}</span>
+      <span class="movie__rating">{{$ctrl.movie.Rated || 'NR'}}</span>
+      <span class="movie__runtime" ng-if="$ctrl.movie.Runtime"
+        >{{$ctrl.movie.Runtime}}</span
+      >
+      <span class="movie__released" ng-if="$ctrl.movie.Released"
+        >{{$ctrl.movie.Released}}</span
+      >
     </div>
 
     <div class="movie__plot">{{$ctrl.movie.Plot}}</div>
   </div>
 
-  <div class="movie__footer">
+  <div class="movie__footer" ng-if="$ctrl.movie.imdbID">
     <a
       class="movie__button"
       ng-href="//imdb.com/title/{{$ctrl.movie.imdbID}}"
