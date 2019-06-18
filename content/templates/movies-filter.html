@@ -1,0 +1,9 @@
+<button
+  ng-repeat="filter in $ctrl.filters"
+  class="movies__filter"
+  ng-class="{'movies__filter--active': filter.active}"
+  ng-click="$ctrl.updateActiveFilter(filter);"
+  type="button"
+>
+  {{filter.label}}
+</button>
