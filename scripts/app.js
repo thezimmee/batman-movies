@@ -28,7 +28,7 @@ function MoviesListController ($scope, $element, $attrs, $http) {
     ctrl.movies = response.data.Search.slice(0, 10)
     // Fetch additional details for each movie.
     ctrl.movies.forEach(function (movie, i) {
-      $http.get('http://www.omdbapi.com/?i=' + movie.imdbID + '&apikey=2b48aeda').then(function success (response) {
+      $http.get('//www.omdbapi.com/?i=' + movie.imdbID + '&apikey=2b48aeda').then(function success (response) {
         movie = Object.assign(movie, response.data)
       }, function error (response) {
         // @todo: Handle error.
