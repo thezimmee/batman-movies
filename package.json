@@ -14,7 +14,7 @@
   "author": "Tyson Zimmerman <thezimmee@gmail.com> (https://github.com/thezimmee/)",
   "license": "MIT",
   "devDependencies": {
-    "@brikcss/git-hooks": "^2.2.1",
+    "@brikcss/git-hooks": "^3.0.1",
     "@node-minify/core": "^4.0.5",
     "@node-minify/uglify-es": "^4.0.5",
     "@node-minify/uglify-js": "^4.0.5",
